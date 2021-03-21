@@ -9,11 +9,10 @@ import br.com.schumaker.forum.repository.CursoRepository;
 public class CursoService() {
 
   public List<Curso> getBy(ReportDTO dto) {
-    List<Funcionario> cursos = cursoRepository.findAll(Specification
-				.where(
-						CursoSpecification.nome(dto.getNome))
-						.or(CursoSpecification.categoria(dto.getCategoria))
-				);
+    List<Funcionario> cursos = cursoRepository
+	    .findAll(Specification
+	    .where(CursoSpecification.nome(dto.getNome))
+	    .or(CursoSpecification.categoria(dto.getCategoria)));
     return cursos;
   }
 }
